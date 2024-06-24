@@ -8,6 +8,7 @@ import DevsLight from "../public/images/devs-light.png"
 import { useEffect } from "react";
 import React from "react";
 import { useTheme } from "next-themes";
+import Sidebar from "@/components/Sidebar";
 
 export default function Home() {
   const { loggedIn, setLoggedIn, user, setUser } =
@@ -28,6 +29,7 @@ export default function Home() {
             <div className=" mr-5">
               <ModeToggle />
             </div>
+            <Sidebar /> {/* TESTING SIDEBAR*/}
           </div>
           <div className="h-[90%] flex items-center justify-center">
             <Login 
