@@ -40,7 +40,7 @@ export default function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
-
+ 
   const table = useReactTable({
     data,
     columns,
@@ -56,29 +56,31 @@ export default function DataTable<TData, TValue>({
     },
   });
 
+  const possibleColumnIds = ["Event Name", "certificateNumber"];
+  const eventColumn = table
+  .getAllColumns()
+  .find((col) => possibleColumnIds.includes(col.id)) || null;
+  
+  const possibleColumnIds2 = ["name", "Committee Name"];
+  const eventColumn2 = table
+  .getAllColumns()
+  .find((col) => possibleColumnIds2.includes(col.id)) || null;
+  
   return (
     <>
       {showFilters && ( // Conditionally render the filters
         <div className="flex items-center py-4">
           <Input
-            placeholder="Filter Certificate Number..."
-            value={
-              (table
-                .getColumn("certificateNumber")
-                ?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table
-                .getColumn("certificateNumber")
-                ?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
+              placeholder={eventColumn?.id ?? "Search"}
+              value={(eventColumn?.getFilterValue() as string) ?? ""}
+              onChange={(event) => eventColumn?.setFilterValue(event.target.value)}
+              className="max-w-sm"
           />
           <Input
-            placeholder="Filter Name..."
-            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+            placeholder={eventColumn2?.id ?? "Filter Name"}
+            value={(eventColumn2?.getFilterValue() as string) ?? ""}
             onChange={(event) =>
-              table.getColumn("name")?.setFilterValue(event.target.value)
+              eventColumn2?.setFilterValue(event.target.value)
             }
             className="max-w-sm ml-2"
           />

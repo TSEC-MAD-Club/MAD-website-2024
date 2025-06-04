@@ -28,14 +28,19 @@ const CommitteeHistory: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
+  console.log(user);
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const eventsRef = collection(db, "TempEvents");
         const snapshot = await getDocs(eventsRef);
         const Events = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Event));
-        const nonPendingEvents = Events.filter((e: Event) => e["Committee Name"] === user?.name);
-        setEvents(nonPendingEvents);
+const nonPendingEvents = Events.filter((e: Event) => {
+ 
+  const committeeName = e["Committee Name"]?.toString().toLowerCase().trim();
+  const userName = user?.name?.toString().toLowerCase().trim();
+  return committeeName === userName;
+});        setEvents(nonPendingEvents);
       } catch (error) {
         console.error("Error fetching events:", error);
       } finally {
