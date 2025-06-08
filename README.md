@@ -11,6 +11,7 @@ Welcome to the official repository of the [Developers Club of TSEC](https://tsec
 
 ---
 
+
 ## 🧑‍💻 Tech Stack
 
 Built with [Next.js](https://nextjs.org/) (App Router), bootstrapped using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).  
