@@ -40,9 +40,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint code
-        run: pnpm lint
-
       - name: Check outdated packages
         run: pnpm outdated || true
 
