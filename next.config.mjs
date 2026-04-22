@@ -7,17 +7,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const nextConfig = {
+  output: "export",
 
   eslint: {
     ignoreDuringBuilds: false,
   },
-
 
   typescript: {
     ignoreBuildErrors: false,
   },
 
   images: {
+    unoptimized: true,
+
     remotePatterns: [
       {
         protocol: "https",
@@ -25,6 +27,7 @@ const nextConfig = {
         pathname: "/v0/b/**",
       },
     ],
+
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
