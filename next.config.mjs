@@ -7,8 +7,10 @@ const __dirname = dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  ...(process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true' && {
+    output: 'export',
+    trailingSlash: true,
+  }),
   typescript: {
     ignoreBuildErrors: true,
   },
