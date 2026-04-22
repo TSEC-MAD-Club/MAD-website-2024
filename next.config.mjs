@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -6,9 +5,8 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-
   eslint: {
     ignoreDuringBuilds: false,
   },
@@ -18,8 +16,6 @@ const nextConfig = {
   },
 
   images: {
-    unoptimized: true,
-
     remotePatterns: [
       {
         protocol: "https",
@@ -27,9 +23,9 @@ const nextConfig = {
         pathname: "/v0/b/**",
       },
     ],
-
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentSecurityPolicy:
+      "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   webpack: (config) => {
