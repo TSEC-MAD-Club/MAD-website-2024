@@ -13,21 +13,10 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Only initialize Firebase if we have the required config and we're not in SSR
-let app: any = null;
-let db: any = null;
-let auth: any = null;
-let storage: any = null;
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-if (typeof window !== 'undefined' && firebaseConfig.apiKey) {
-  try {
-    app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-    db = getFirestore(app);
-    auth = getAuth(app);
-    storage = getStorage(app);
-  } catch (error) {
-    console.error('Firebase initialization error:', error);
-  }
-}
+const auth = getAuth(app);
+const storage = getStorage(app);
 
 export { db, app, auth, storage };
