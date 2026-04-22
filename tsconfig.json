@@ -14,7 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -44,8 +44,10 @@
     "src/components/RailwayConcession/getInfo/ApprovalInfo.jsx",
     "src/components/RailwayConcession/actions/CancelConcession.tsx",
     "src/pages/RailwayEntryInterface.jsx",
-    "src/components/RailwayConcession/rcList/RailwayConcessionCard.jsx"
-, "src/components/Report"  ],
+    "src/components/RailwayConcession/rcList/RailwayConcessionCard.jsx",
+    "src/components/Report",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
