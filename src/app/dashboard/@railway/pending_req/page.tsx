@@ -111,7 +111,7 @@ const PendingRequests = () => {
 
         //sorting
         const sortedUserList = userWithTimes.sort((a, b) => {
-          return a.time.getTime() - b.time.getTime();
+          return b.time.getTime() - a.time.getTime();
         });
 
         setData(sortedUserList);
