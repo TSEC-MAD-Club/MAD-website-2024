@@ -219,6 +219,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
           onWheel={handleWheel}
         >
           <Image
+            unoptimized
             ref={imageRef}
             src={imageSrc}
             alt="Previous Pass"
@@ -723,6 +724,7 @@ const PendingCard: React.FC<PendingCardProps> = ({
         <div className="w-[30%] h-full flex flex-col overflow-auto">
           <div className="m-2 h-[33.333%] relative">
             <Image
+              unoptimized
               className="rounded-lg"
               src={idCardURL}
               alt="ID Card Front"
@@ -741,6 +743,7 @@ const PendingCard: React.FC<PendingCardProps> = ({
           </div>
           <div className="m-2 h-[33.333%] relative">
             <Image
+              unoptimized
               className="rounded-lg"
               src={idCardURL2}
               alt="ID Card Back"
@@ -759,6 +762,7 @@ const PendingCard: React.FC<PendingCardProps> = ({
           </div>
           <div className="m-2 h-[33.333%] relative">
             <Image
+              unoptimized
               className="rounded-lg"
               src={previousPassURL}
               alt="Previous Pass"
